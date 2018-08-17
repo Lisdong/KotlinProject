@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_header_point">10dp</dimen>
+    <dimen name="point_size">5dp</dimen>
+    <dimen name="browse_header_height">200dp</dimen>
+</resources>
