@@ -10,6 +10,10 @@ import com.lzy.okgo.interceptor.HttpLoggingInterceptor
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
+import com.umeng.commonsdk.UMConfigure
+import com.umeng.socialize.PlatformConfig
+import com.umeng.socialize.UMShareAPI
+import com.umeng.socialize.UMShareConfig
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 import java.util.logging.Level
@@ -56,5 +60,12 @@ class MyApplication : Application(){
                 .setOkHttpClient(builder.build())                               //建议设置OkHttpClient，不设置将使用默认的
                 .setCacheMode(CacheMode.NO_CACHE)                               //全局统一缓存模式，默认不使用缓存，可以不传
                 .setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE).retryCount = 3    //全局统一超时重连次数，默认为三次，那么最差的情况会请求4次(一次原始请求，三次重连请求)，不需要可以设置为0
+
+        //分享
+        //UMShareAPI.get(this)
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "")
+        PlatformConfig.setWeixin("wxdda8441a2fcd9957", "9dcf5851d8d807bbcf92f7dd56856eae");
+        PlatformConfig.setSinaWeibo("3072140610", "faa0b4cf935fa6f3ee935b531190106c", "http://sns.whalecloud.com");
+        PlatformConfig.setQQZone("1107784636", "CGbOO5884NQ05glK");
     }
 }

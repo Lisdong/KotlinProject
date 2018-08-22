@@ -1,10 +1,9 @@
 package com.example.kt.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.kt.R
 import com.example.kt.R.layout.f_browse_layout
@@ -13,6 +12,7 @@ import com.example.kt.adapter.BrowseBannerAdapter
 import com.example.kt.app.MessageEvent
 import com.example.kt.bean.BannerBean
 import com.example.kt.bean.BrowseBean
+import com.example.kt.ui.WebViewActivity
 import com.example.kt.ui.base.BaseFragment
 import com.example.kt.ui.fragment.presenter.BrowsePresenter
 import com.example.kt.ui.fragment.view.BrowseView
@@ -62,6 +62,9 @@ class BrowseFragment : BaseFragment(),BrowseView{
         //添加头部
         mBAdapter.addHeaderView(getBannerHeader())
 
+        //添加颈部
+        mBAdapter.addHeaderView(getNek())
+
         getBannerAdapter()
         showData()
         showBanner()
@@ -70,6 +73,10 @@ class BrowseFragment : BaseFragment(),BrowseView{
 
     override fun getBannerAdapter() {
         mVAdapter = mPresenter.getBannerAdapter()!!
+    }
+
+    fun getNek():View{
+        return mPresenter.getNek()
     }
 
     override fun showData() {
@@ -121,13 +128,23 @@ class BrowseFragment : BaseFragment(),BrowseView{
         //默认第一次加载会调用  加载更多，此方法控制第一次不进入加载回调
         mBAdapter.disableLoadMoreIfNotFullPage();
         mBAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener { adapter, view, position ->
-            Toast.makeText(activity,"dasfjfasdh",Toast.LENGTH_LONG).show()
+            val data:List<BrowseBean.DataBean.DatasBean> = adapter.data as List<BrowseBean.DataBean.DatasBean>
+            val intent = Intent()
+            intent.setClass(activity, WebViewActivity::class.java)
+            intent.putExtra("url", data[position].link)
+            startActivity(intent)
         }
         b_refresh.setOnRefreshListener {
             currentIndex = 1
             showData()
             showBanner()
             b_refresh.isRefreshing = false
+        }
+        browse_search.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(activity, WebViewActivity::class.java)
+            intent.putExtra("url", "https://www.baidu.com")
+            startActivity(intent)
         }
     }
 

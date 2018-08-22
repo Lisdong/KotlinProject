@@ -30,4 +30,6 @@ interface IBrowseData {
 
     fun setTitleLayout(browse_title: LinearLayout, recyclerView: RecyclerView)
 
+    fun getNek():View
+
 }

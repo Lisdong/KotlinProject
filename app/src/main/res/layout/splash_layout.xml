@@ -7,7 +7,7 @@
         android:id="@+id/sp_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/icon_splash"
+        android:src="@drawable/icon_splash"
         android:visibility="gone"
         tools:ignore="ContentDescription" />
     <TextView

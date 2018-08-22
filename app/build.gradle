@@ -23,28 +23,43 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:design:27.1.1'
-    implementation 'com.orhanobut:logger:2.2.0'//log
-    implementation 'com.lzy.net:okgo:3.0.4'//网络请求库
-    implementation 'pub.devrel:easypermissions:1.2.0'//官方权限申请
+    implementation 'com.orhanobut:logger:2.2.0'
+    //log
+    implementation 'com.lzy.net:okgo:3.0.4'
+    //网络请求库
+    implementation 'pub.devrel:easypermissions:1.2.0'
+    //官方权限申请
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation('com.afollestad.material-dialogs:core:0.9.4.7', {//弹出框
         exclude group: 'com.android.support'
     })
-    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.4'//状态栏沉浸
-    implementation 'org.greenrobot:eventbus:3.1.1'//事件总线
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'//recyclerView-adapter框架
-    implementation 'com.github.bumptech.glide:glide:4.7.1'//图片加载库
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    //状态栏沉浸
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //事件总线
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    //recyclerView-adapter框架
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    //图片加载库
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    implementation 'com.github.yalantis:ucrop:2.2.2-native'//来自yalantis的图片裁剪库
-    implementation 'com.github.lzyzsd:jsbridge:1.0.4'//JavaScript桥接
-
+    implementation 'com.github.yalantis:ucrop:2.2.2-native'
+    //来自yalantis的图片裁剪库
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+    //JavaScript桥接
+    implementation files('libs/umeng-share-core-6.9.3.jar')
+    implementation files('libs/umeng-share-QQ-simplify-6.9.3.jar')
+    implementation files('libs/umeng-share-sina-simplify-6.9.3.jar')
+    implementation files('libs/umeng-share-wechat-simplify-6.9.3.jar')
+    implementation files('libs/umeng-shareboard-widget-6.9.3.jar')
+    implementation files('libs/umeng-sharetool-6.9.3.jar')
+    implementation files('libs/umeng-common-1.5.3.jar')
 }

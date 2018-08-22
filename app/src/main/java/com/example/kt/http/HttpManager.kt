@@ -11,6 +11,7 @@ import com.lzy.okgo.callback.BitmapCallback
 import com.lzy.okgo.callback.FileCallback
 import com.lzy.okgo.model.Progress
 import com.lzy.okgo.model.Response
+import okhttp3.OkHttpClient
 import java.io.File
 import java.lang.reflect.Type
 
@@ -134,7 +135,7 @@ class HttpManager private constructor() {
 
             override fun onError(response: Response<T>) {
                 val message = response.message()
-                callback.onError(message)
+                callback.onError(message+"--")
             }
         })
     }

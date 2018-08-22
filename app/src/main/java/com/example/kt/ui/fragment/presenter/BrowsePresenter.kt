@@ -1,6 +1,7 @@
 package com.example.kt.ui.fragment.presenter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
@@ -18,8 +19,10 @@ import com.example.kt.bean.BrowseBean
 import com.example.kt.http.HttpManager
 import com.example.kt.http.RequestBeanCallback
 import com.example.kt.http.Url
+import com.example.kt.ui.WebViewActivity
 import com.example.kt.ui.fragment.model.IBrowseData
 import kotlinx.android.synthetic.main.banner_layout.view.*
+import kotlinx.android.synthetic.main.nek_layout.view.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -56,6 +59,23 @@ class BrowsePresenter(context: Context) :IBrowseData{
 
         return view
     }
+    override fun getNek() :View{
+        val nekView = LayoutInflater.from(mContext).inflate(R.layout.nek_layout,null)
+        nekView.nek_l.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(mContext, WebViewActivity::class.java)
+            intent.putExtra("url", "https://github.com/LRDDYR")
+            mContext.startActivity(intent)
+        }
+        nekView.nek_y.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(mContext, WebViewActivity::class.java)
+            intent.putExtra("url", "https://github.com/Yexingshuai")
+            mContext.startActivity(intent)
+        }
+        return nekView
+    }
+
 
     override fun getBannerAdapter(): BrowseBannerAdapter? {
         return mVAdapter

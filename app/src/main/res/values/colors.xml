@@ -12,4 +12,5 @@
     <color name="tab_pressed_color">#13227a</color>
     <color name="tab_color">#8a8a8a</color>
     <color name="gray_bg">#5577787b</color>
+    <color name="text_failed">#bfbfbf</color>
 </resources>

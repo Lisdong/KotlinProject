@@ -13,10 +13,12 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.example.kt.R
+import com.example.kt.app.Constant
 import com.example.kt.ui.HomeActivity
 import com.example.kt.ui.WelcomeActivity
 import com.example.kt.ui.model.callback.WeMImpl
 import com.example.kt.utils.DeviceUtils
+import com.example.kt.utils.SharedPreferencesUtils
 
 /**
  * Created By LRD
@@ -39,7 +41,7 @@ class WelcomeModel : WeMImpl {
         mPoint = wc_point
         mBtn = wc_btn
 
-        val imageList = intArrayOf(R.drawable.pictrue1,R.drawable.pictrue2,R.drawable.pictrue3,R.drawable.pictrue4)
+        val imageList = intArrayOf(R.drawable.picture1,R.drawable.picture2,R.drawable.picture3,R.drawable.picture4)
         for (i in 0 until imageList.size){
             val imageView = ImageView(mContext)
             imageView.setBackgroundResource(imageList[i])
@@ -98,6 +100,7 @@ class WelcomeModel : WeMImpl {
 
     //页面跳转
     override fun skipActivity() {
+        SharedPreferencesUtils.saveBoolean(mContext!!.applicationContext, Constant.isFirstInApp,false)
         val intent= Intent()
         intent.setClass(mContext,HomeActivity::class.java)
         mContext?.startActivity(intent)
@@ -120,7 +123,8 @@ class WelcomeModel : WeMImpl {
         }
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
-            val imageView = a!!.get(position)
+            val imageView = a!![position]
+            imageView.scaleType = ImageView.ScaleType.FIT_CENTER
             container.addView(imageView)
             return imageView
         }

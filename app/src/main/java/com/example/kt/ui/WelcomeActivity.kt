@@ -1,9 +1,11 @@
 package com.example.kt.ui
 
 import com.example.kt.R.layout.welcome_layout
+import com.example.kt.app.Constant
 import com.example.kt.ui.base.BaseActivity
 import com.example.kt.ui.presenter.WelcomePresenter
 import com.example.kt.ui.view.WelcomeView
+import com.example.kt.utils.SharedPreferencesUtils
 import kotlinx.android.synthetic.main.welcome_layout.*
 
 /**
