@@ -1,12 +1,13 @@
 package com.example.kt.ui
 
+import android.content.Intent
 import android.view.View
 import com.example.kt.R
 import com.example.kt.R.layout.home_layout
-import com.example.kt.adapter.HVAdapter
 import com.example.kt.ui.base.BaseActivity
 import com.example.kt.ui.presenter.HomePresenter
 import com.example.kt.ui.view.HomeImpl
+import com.umeng.socialize.UMShareAPI
 import kotlinx.android.synthetic.main.home_layout.*
 
 /**
@@ -15,8 +16,6 @@ import kotlinx.android.synthetic.main.home_layout.*
  */
 class HomeActivity : BaseActivity(),HomeImpl, View.OnClickListener {
 
-    private val mAdapter = HVAdapter(supportFragmentManager)
-    private val mPresenter = HomePresenter(this)
 
     override fun setLayoutResID(): Int {
         return home_layout
@@ -27,8 +26,11 @@ class HomeActivity : BaseActivity(),HomeImpl, View.OnClickListener {
     }
 
     override fun init() {
+
+        val mPresenter = HomePresenter(this)
+//
+        mPresenter.validate(home_Viewpager,supportFragmentManager)
         initView()
-        mPresenter.validate(home_Viewpager,mAdapter)
     }
 
     //初始化
@@ -87,5 +89,9 @@ class HomeActivity : BaseActivity(),HomeImpl, View.OnClickListener {
                 setting_text.setTextColor(resources.getColor(R.color.tab_pressed_color))
             }
         }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data)
     }
 }

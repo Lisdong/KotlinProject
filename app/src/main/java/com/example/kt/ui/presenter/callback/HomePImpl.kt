@@ -1,7 +1,6 @@
 package com.example.kt.ui.presenter.callback
 
-import android.support.v4.view.ViewPager
-import com.example.kt.adapter.HVAdapter
+import android.support.v4.app.FragmentManager
 import com.example.kt.views.ViewPagerSlide
 
 /**
@@ -9,5 +8,5 @@ import com.example.kt.views.ViewPagerSlide
  * on 2018/8/13  notes：
  */
 interface HomePImpl {
-    fun validate(vp: ViewPagerSlide, adapter: HVAdapter)
+    fun validate(vp: ViewPagerSlide, adapter: FragmentManager)
 }

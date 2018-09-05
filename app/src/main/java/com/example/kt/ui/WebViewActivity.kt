@@ -97,8 +97,8 @@ class WebViewActivity : BaseActivity(){
             val image = UMImage(this, R.mipmap.ic_launcher)
             web.title = "来自kotlin学习app"
             web.setThumb(image)
-            web.description = web_title.text.toString()
-            ShareAction(this)
+            web.description = web_title.text.toString()+"hello"
+            ShareAction(activity)
                     .withMedia(web)
                     .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN)
                     .setCallback(object :UMShareListener{
@@ -213,7 +213,7 @@ class WebViewActivity : BaseActivity(){
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

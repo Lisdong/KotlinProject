@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.kt">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,6 +14,15 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/><!-- 安装权限 -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/><!--指纹权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_LOGS" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" tools:ignore="ProtectedPermissions" />
+
+
 
     <application
         android:name=".app.MyApplication"
@@ -30,8 +40,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".ui.HomeActivity" android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".ui.WelcomeActivity" />
+        <activity android:name=".ui.CServiceActivity" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".ui.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -40,11 +51,11 @@
             android:name=".service.WebViewService"
             android:enabled="true"
             android:exported="true"/>
-        <!--友盟appkey-->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5b7bde78a40fa321c50000f0" >
-        </meta-data>
+
+        <!--<meta-data-->
+            <!--android:name="UMENG_APPKEY"-->
+            <!--android:value="5b7bde78a40fa321c50000f0" >-->
+        <!--</meta-data>-->
         <!--新浪分享-->
         <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
@@ -90,6 +101,8 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name=".ui.TServiceActivity" />
+
     </application>
 
 </manifest>

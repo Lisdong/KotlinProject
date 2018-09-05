@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="end"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/error_send"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/icon_error_prompt"/>
+    <com.example.kt.utils.BubbleTextView
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|right"
+        android:layout_height="wrap_content"
+        android:text="Hello BubbleTextVew"
+        android:padding="10dp"
+        android:textColor="#fff"
+        app:arrowWidth="8dp"
+        app:angle="8dp"
+        android:id="@+id/tv_main_item_content"
+        app:arrowHeight="10dp"
+        app:arrowPosition="14dp"
+        app:arrowLocation="right"
+        app:arrowCenter="true"
+        app:bubbleColor="#FFA500"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:src="@drawable/picture_location"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"/>
+</LinearLayout>

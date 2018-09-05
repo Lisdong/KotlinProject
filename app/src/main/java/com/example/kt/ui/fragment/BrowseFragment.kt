@@ -16,7 +16,15 @@ import com.example.kt.ui.WebViewActivity
 import com.example.kt.ui.base.BaseFragment
 import com.example.kt.ui.fragment.presenter.BrowsePresenter
 import com.example.kt.ui.fragment.view.BrowseView
+import com.example.kt.utils.ToastUtil
+import com.umeng.socialize.ShareAction
+import com.umeng.socialize.UMShareListener
+import com.umeng.socialize.bean.SHARE_MEDIA
+import com.umeng.socialize.media.UMImage
+import com.umeng.socialize.media.UMWeb
+import kotlinx.android.synthetic.main.empty_layout.view.*
 import kotlinx.android.synthetic.main.f_browse_layout.*
+import kotlinx.android.synthetic.main.web_layout.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -46,7 +54,7 @@ class BrowseFragment : BaseFragment(),BrowseView{
 
     override fun init() {
         mPresenter = BrowsePresenter(activity)
-
+//
         initView()
         initListener()
     }
@@ -69,6 +77,16 @@ class BrowseFragment : BaseFragment(),BrowseView{
         showData()
         showBanner()
         setTitleShow()
+    }
+
+    private fun getEmptyView(): View {
+        mBAdapter.removeAllHeaderView()
+        val view = layoutInflater.inflate(R.layout.empty_layout,null)
+        view.error_img.setOnClickListener{
+            showData()
+            showBanner()
+        }
+        return view
     }
 
     override fun getBannerAdapter() {
@@ -94,7 +112,7 @@ class BrowseFragment : BaseFragment(),BrowseView{
             }
 
             override fun onError(error: String) {
-
+                mBAdapter.emptyView = getEmptyView()
             }
         })
     }
@@ -108,6 +126,7 @@ class BrowseFragment : BaseFragment(),BrowseView{
             }
 
             override fun onError(error: String) {
+                //mBAdapter.emptyView = getEmptyView()
             }
 
         })
@@ -141,10 +160,37 @@ class BrowseFragment : BaseFragment(),BrowseView{
             b_refresh.isRefreshing = false
         }
         browse_search.setOnClickListener {
-            val intent = Intent()
-            intent.setClass(activity, WebViewActivity::class.java)
-            intent.putExtra("url", "https://www.baidu.com")
-            startActivity(intent)
+//            val intent = Intent()
+//            intent.setClass(activity, WebViewActivity::class.java)
+//            intent.putExtra("url", "https://www.baidu.com")
+//            startActivity(intent)
+            val web = UMWeb("https://www.baidu.com")
+            val image = UMImage(activity, R.mipmap.ic_launcher)
+            web.title = "来自kotlin学习app"
+            web.setThumb(image)
+            web.description = "hello"
+            ShareAction(activity)
+                    .withMedia(web)
+                    .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN)
+                    .setCallback(object :UMShareListener{
+                        override fun onCancel(p0: SHARE_MEDIA?) {
+                            ToastUtil.getInstance(activity).showToast("分享取消啦")
+
+                        }
+
+                        override fun onError(p0: SHARE_MEDIA?, p1: Throwable?) {
+                            ToastUtil.getInstance(activity).showToast("分享失败啦-$p1")
+                        }
+
+                        override fun onStart(p0: SHARE_MEDIA?) {
+                        }
+
+                        override fun onResult(p0: SHARE_MEDIA?) {
+                            ToastUtil.getInstance(activity).showToast("分享成功啦")
+                        }
+
+                    })
+                    .open()
         }
     }
 

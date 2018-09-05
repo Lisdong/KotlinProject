@@ -9,19 +9,13 @@ import com.example.kt.ui.base.BaseFragment
  * Created By LRD
  * on 2018/8/14  notes：
  */
-class HVAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm){
-    private var mFList : List<BaseFragment>? = null
+class HVAdapter(fm : FragmentManager,private val mFlist:List<BaseFragment>) : FragmentPagerAdapter(fm){
 
     override fun getCount(): Int {
-        return mFList!!.size
+        return mFlist.size
     }
 
     override fun getItem(position: Int): Fragment {
-        return mFList!![position]
+        return mFlist[position]
     }
-
-    fun setFragment(fragments:ArrayList<BaseFragment>){
-        mFList = fragments
-    }
-
 }

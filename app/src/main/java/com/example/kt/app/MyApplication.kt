@@ -26,7 +26,6 @@ class MyApplication : Application(){
 
     companion object {
         var instance: MyApplication? = null
-
         const val provider = "com.example.kt.provider"
     }
 
@@ -63,9 +62,11 @@ class MyApplication : Application(){
 
         //分享
         //UMShareAPI.get(this)
-        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "")
-        PlatformConfig.setWeixin("wxdda8441a2fcd9957", "9dcf5851d8d807bbcf92f7dd56856eae");
-        PlatformConfig.setSinaWeibo("3072140610", "faa0b4cf935fa6f3ee935b531190106c", "http://sns.whalecloud.com");
-        PlatformConfig.setQQZone("1107784636", "CGbOO5884NQ05glK");
+        UMConfigure.setLogEnabled(true)
+        UMConfigure.init(this,"5b7bde78a40fa321c50000f0"
+                ,"umeng",UMConfigure.DEVICE_TYPE_PHONE,"");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
+        PlatformConfig.setWeixin("wxed96ffacf483d5e2", "021a4fc2c2e5b8bd4d7d378e66895c93")
+        PlatformConfig.setSinaWeibo("4171168433", "7eb9395e0f7cb66eafddc214a2c18b7c", "http://www.sina.com")
+        PlatformConfig.setQQZone("1107784636", "CGbOO5884NQ05glK")
     }
 }

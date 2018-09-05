@@ -21,8 +21,15 @@ import com.example.kt.http.RequestBeanCallback
 import com.example.kt.http.Url
 import com.example.kt.ui.WebViewActivity
 import com.example.kt.ui.fragment.model.IBrowseData
+import com.example.kt.utils.ToastUtil
+import com.umeng.socialize.ShareAction
+import com.umeng.socialize.UMShareListener
+import com.umeng.socialize.bean.SHARE_MEDIA
+import com.umeng.socialize.media.UMImage
+import com.umeng.socialize.media.UMWeb
 import kotlinx.android.synthetic.main.banner_layout.view.*
 import kotlinx.android.synthetic.main.nek_layout.view.*
+import kotlinx.android.synthetic.main.web_layout.*
 import org.greenrobot.eventbus.EventBus
 
 /**

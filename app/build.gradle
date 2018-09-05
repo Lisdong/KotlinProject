@@ -62,4 +62,7 @@ dependencies {
     implementation files('libs/umeng-shareboard-widget-6.9.3.jar')
     implementation files('libs/umeng-sharetool-6.9.3.jar')
     implementation files('libs/umeng-common-1.5.3.jar')
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'//retrofit请求库
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'//日志拦截器
 }

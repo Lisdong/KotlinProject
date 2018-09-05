@@ -8,6 +8,9 @@ import android.view.View
 import android.view.WindowManager
 import com.example.kt.R
 import com.example.kt.utils.StatusBarUtil
+import android.view.MotionEvent
+import com.example.kt.utils.DeviceUtils
+
 
 /**
  * Created By LRD
@@ -70,7 +73,8 @@ abstract class BaseActivity : AppCompatActivity() {
                 window.statusBarColor = resources.getColor(R.color.white,null)
             }else{
                 window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                window.statusBarColor = resources.getColor(R.color.white,null)
+                window.statusBarColor = resources.getColor(R.color.transparent,null)
+                //window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             }
         }else{//6.0以下
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
@@ -107,5 +111,17 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun isShowHeight(): Boolean {
         return true
     }
+
+//    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+//        when (ev.action) {
+//            MotionEvent.ACTION_DOWN -> {
+//                val view = currentFocus
+//                DeviceUtils.hideKeyboard(ev, view, this@BaseActivity)//调用方法判断是否需要隐藏键盘
+//            }
+//            else -> {
+//            }
+//        }
+//        return super.dispatchTouchEvent(ev)
+//    }
 
 }
