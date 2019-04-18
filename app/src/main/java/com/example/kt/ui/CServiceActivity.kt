@@ -44,6 +44,9 @@ public class CServiceActivity :BaseActivity(), ICSContract.View{
         chat_rv.adapter = mChatAdapter
 
         onSendListener()
+        web_back.setOnClickListener{
+            finish()
+        }
     }
     override fun onSendListener() {
         btn_send.setOnClickListener{

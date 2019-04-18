@@ -6,22 +6,11 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/nek_l"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
         android:background="@drawable/item_bg"
         android:textColor="@color/transparent_black"
         android:textSize="16sp"
-        android:text="LRDDRY"/>
-    <TextView
-        android:id="@+id/nek_y"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:background="@drawable/item_bg"
-        android:textColor="@color/transparent_black"
-        android:textSize="16sp"
-        android:text="YEXINGSUI"/>
+        android:text="LisDong"/>
 </LinearLayout>

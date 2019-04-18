@@ -160,37 +160,37 @@ class BrowseFragment : BaseFragment(),BrowseView{
             b_refresh.isRefreshing = false
         }
         browse_search.setOnClickListener {
-//            val intent = Intent()
-//            intent.setClass(activity, WebViewActivity::class.java)
-//            intent.putExtra("url", "https://www.baidu.com")
-//            startActivity(intent)
-            val web = UMWeb("https://www.baidu.com")
-            val image = UMImage(activity, R.mipmap.ic_launcher)
-            web.title = "来自kotlin学习app"
-            web.setThumb(image)
-            web.description = "hello"
-            ShareAction(activity)
-                    .withMedia(web)
-                    .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN)
-                    .setCallback(object :UMShareListener{
-                        override fun onCancel(p0: SHARE_MEDIA?) {
-                            ToastUtil.getInstance(activity).showToast("分享取消啦")
-
-                        }
-
-                        override fun onError(p0: SHARE_MEDIA?, p1: Throwable?) {
-                            ToastUtil.getInstance(activity).showToast("分享失败啦-$p1")
-                        }
-
-                        override fun onStart(p0: SHARE_MEDIA?) {
-                        }
-
-                        override fun onResult(p0: SHARE_MEDIA?) {
-                            ToastUtil.getInstance(activity).showToast("分享成功啦")
-                        }
-
-                    })
-                    .open()
+            val intent = Intent()
+            intent.setClass(activity, WebViewActivity::class.java)
+            intent.putExtra("url", "https://www.baidu.com")
+            startActivity(intent)
+//            val web = UMWeb("https://www.baidu.com")
+//            val image = UMImage(activity, R.mipmap.ic_launcher)
+//            web.title = "来自kotlin学习app"
+//            web.setThumb(image)
+//            web.description = "hello"
+//            ShareAction(activity)
+//                    .withMedia(web)
+//                    .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN)
+//                    .setCallback(object :UMShareListener{
+//                        override fun onCancel(p0: SHARE_MEDIA?) {
+//                            ToastUtil.getInstance(activity).showToast("分享取消啦")
+//
+//                        }
+//
+//                        override fun onError(p0: SHARE_MEDIA?, p1: Throwable?) {
+//                            ToastUtil.getInstance(activity).showToast("分享失败啦-$p1")
+//                        }
+//
+//                        override fun onStart(p0: SHARE_MEDIA?) {
+//                        }
+//
+//                        override fun onResult(p0: SHARE_MEDIA?) {
+//                            ToastUtil.getInstance(activity).showToast("分享成功啦")
+//                        }
+//
+//                    })
+//                    .open()
         }
     }
 

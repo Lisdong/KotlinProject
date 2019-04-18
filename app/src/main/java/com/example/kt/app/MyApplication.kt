@@ -1,6 +1,7 @@
 package com.example.kt.app
 
 import android.app.Application
+import cn.jpush.android.api.JPushInterface
 import com.lzy.okgo.OkGo
 import com.lzy.okgo.cache.CacheEntity
 import com.lzy.okgo.cache.CacheMode
@@ -68,5 +69,9 @@ class MyApplication : Application(){
         PlatformConfig.setWeixin("wxed96ffacf483d5e2", "021a4fc2c2e5b8bd4d7d378e66895c93")
         PlatformConfig.setSinaWeibo("4171168433", "7eb9395e0f7cb66eafddc214a2c18b7c", "http://www.sina.com")
         PlatformConfig.setQQZone("1107784636", "CGbOO5884NQ05glK")
+
+        //极光推送
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 }

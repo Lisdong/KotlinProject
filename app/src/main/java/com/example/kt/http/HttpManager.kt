@@ -25,8 +25,7 @@ class HttpManager private constructor() {
         @Volatile
         private var httpManager : HttpManager? = null
 
-        val instance : HttpManager?
-            get() {
+        val instance : HttpManager? get() {
                 if (httpManager == null){
                     synchronized(HttpManager::class.java) {
                         if (httpManager == null) {

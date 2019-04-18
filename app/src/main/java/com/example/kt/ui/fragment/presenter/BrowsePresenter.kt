@@ -71,13 +71,7 @@ class BrowsePresenter(context: Context) :IBrowseData{
         nekView.nek_l.setOnClickListener {
             val intent = Intent()
             intent.setClass(mContext, WebViewActivity::class.java)
-            intent.putExtra("url", "https://github.com/LRDDYR")
-            mContext.startActivity(intent)
-        }
-        nekView.nek_y.setOnClickListener {
-            val intent = Intent()
-            intent.setClass(mContext, WebViewActivity::class.java)
-            intent.putExtra("url", "https://github.com/Yexingshuai")
+            intent.putExtra("url", "https://github.com/Lisdong")
             mContext.startActivity(intent)
         }
         return nekView
